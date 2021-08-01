@@ -12,19 +12,20 @@ class App extends React.Component {
     super();
     this.state={
       currentUser:null
-    }
+    };
   }
   unsubscrubeFromAuth=null;
 
   componentDidMount(){
     this.unsubscribeFromAuth=auth.onAuthStateChanged(user=>{
-      this.setState({currentUser:user.children});
-      console.log('user',this.currentUser)
+      this.setState({ currentUser: user });
+      console.log('user2', this.state.currentUser );
     });
   }
 
   componentWillUnmount(){
     this.unsubscribeFromAuth();
+    console.log('unsubbeed', this.currentUser)
   }
 
  
@@ -32,7 +33,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <Header currentUser={this.state.currentUser} />
+        <Header currentUser={this.state.currentUser}/>
         <Switch>
           <Route exact path='/' component={Homepage}></Route>
           <Route path='/shop' component={ShopPage}></Route>
