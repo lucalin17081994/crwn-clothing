@@ -5,12 +5,17 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+<Provider store={store}>
+    //provider is component, pass store obj and provider can pass it to whole application
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  </Provider>
+  
 );
 
 // If you want your app to work offline and load faster, you can change
