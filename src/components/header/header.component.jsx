@@ -1,4 +1,9 @@
 import React from 'react'
+
+//modify component to have access to redux
+//higher order component
+import {connect} from 'react-redux'
+
 import './header.styles.scss'
 import {Link} from 'react-router-dom'
 import {ReactComponent as Logo} from '../../assets/crown.svg'
@@ -29,4 +34,11 @@ const Header = ({currentUser}) => (
     </div>
   </div>
 )
-export default Header;
+
+//state=root reducer
+const mapStateToProps=state=>({
+  //state.user==userReducer from root reducer
+  currentUser:state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header);
