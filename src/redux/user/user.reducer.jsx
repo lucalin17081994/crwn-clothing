@@ -2,13 +2,14 @@
 //action has type and payload
 //write a bunch of actions in reducer
 //set initial state, just like in constructor
+import { UserActionTypes } from "./user.types"
 
 const INITIAL_STATE={
   currentUser:null
 }
 const userReducer=(state=INITIAL_STATE,action)=>{
   switch(action.type){//all reducers receive the same action
-    case 'SET_CURRENT_USER':
+    case UserActionTypes.SET_CURRENT_USER:
       return{
         ...state,
         currentUser:action.payload
